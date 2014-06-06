@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.tlplayer.org/UIInfo" xmlns:tns="http://www.tlplayer.org/UIInfo" elementFormDefault="qualified">
+	<element name="player-configuration">
+		<complexType>
+			<sequence>
+				<element name="property" maxOccurs="unbounded">
+					<complexType>
+						<attribute name="name" type="string" use="required"/>
+						<attribute name="value" type="string" use="optional"/>
+					</complexType>
+				</element>
+			</sequence>
+		</complexType>
+	</element>
+</schema>

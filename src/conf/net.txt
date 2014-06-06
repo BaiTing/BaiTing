@@ -1,0 +1,4 @@
+play.baidu.com
+fm.baidu.com
+web.kugou.com
+http://player.kuwo.cn/webmusic/play

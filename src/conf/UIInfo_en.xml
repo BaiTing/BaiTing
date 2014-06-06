@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<player-configuration xmlns:tns="http://www.tlplayer.org/UIInfo" 
+					  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+					  xsi:schemaLocation="http://www.tlplayer.org/UIInfo UIInfo.xsd ">
+  	<!-- 播放器界面配置文件英文版：此文件仅供开发人员配置 -->
+  	<property name="slider.balance.text.right">Right{0}</property>
+  	<property name="slider.balance.text.left">Left{0}</property>
+  	<property name="slider.balance.text.center">Center{0}</property>
+  	<property name="slider.volume.text">Volume{0}</property>
+  	<property name="playlist.extension.m3u">M3U</property>
+  	<property name="playlist.extension.pls">PLS</property>
+  	<property name="title.buffering">Buffering</property>
+  	<property name="title.invalidfile">Invalid</property>
+  	<!-- 播放器的状态 -->
+  	<property name="state.play">Play</property>
+  	<property name="state.pause">Pause</property>
+  	<property name="state.stop">Stop</property>
+  	<!-- 歌曲的信息部分 -->
+  	<property name="songinfo.empty" value=" "/>
+  	<property name="songinfo.channel.stereo">Stereo</property>
+  	<property name="songinfo.channel.mono">Mono</property>
+  	<property name="songinfo.bitrate">BitRate:</property>
+  	<property name="songinfo.samplerate">Sampled:</property>
+  	<property name="songinfo.title">Title:</property>
+  	<property name="songinfo.artist">Artist:</property>
+  	<property name="songinfo.album">Album:</property>
+  	<property name="songinfo.year">Year:</property>
+  	<property name="songinfo.length">Length:</property>
+  	<property name="songinfo.format">Format:</property>
+  	<property name="songinfo.channel">Channel:</property>
+  	<property name="songinfo.location">Location:</property>
+  	<property name="songinfo.unknown.album">Unknown</property>
+  	<property name="songinfo.unknown.channel">Unknown</property>
+  	<property name="songinfo.unknown.bitrate">Unknown</property>
+  	<property name="songinfo.unknown.samplerate">Unknown</property>
+  	<property name="songinfo.unknown.artist">Unknown</property>
+  	<property name="songinfo.unknown.title">Unknown</property>
+  	<property name="songinfo.unknown.length">Unknown</property>
+  	<property name="songinfo.unknown.format">Unknown</property>
+  	<!-- 播放列表的上下文菜单部分 -->
+  	<property name="playlist.play">Play</property>
+  	<property name="playlist.file.property">Property</property>
+  	<property name="playlist.option">Option</property>
+  	<!-- 重命名的上下文菜单部分 -->
+  	<property name="playlist.rename">Rename</property>
+  	<property name="playlist.rename.songName.ext">Title.Ext</property>
+  	<property name="playlist.rename.artist.songName.ext">Artist - Title.Ext</property>
+  	<property name="playlist.rename.songName.aritst.ext">Title - Artist.Ext</property>
+  	<!-- 添加菜单部分 -->
+  	<property name="playlist.add">Add</property>
+  	<property name="playlist.add.file">Add File</property>
+  	<property name="playlist.add.dir">Add Dir</property>
+  	<property name="playlist.add.url">Add URL</property>
+  	<!-- 删除菜单部分 -->
+  	<property name="playlist.delete">Delete</property>
+  	<property name="playlist.delete.select">Delete Selected</property>
+  	<property name="playlist.delete.repeat">Delete Repeated</property>
+  	<property name="playlist.delete.all">Delete All</property>
+  	<property name="playlist.delete.error">Delete ErrorFile</property>
+  	<property name="playlist.delete.deletefile">Delete File</property>
+  	<!-- 查找菜单部分 -->
+  	<property name="playlist.search">Search</property>
+  	<property name="playlist.search.fileName">By FileName</property>
+  	<property name="playlist.search.title">By Title</property>
+  	<property name="playlist.search.artist">By Artist</property>
+  	<property name="playlist.search.album">By Album</property>
+  	<!-- 排序菜单部分 -->
+  	<property name="playlist.sort">Sort</property>
+  	<property name="playlist.sort.artist">By Artist</property>
+  	<property name="playlist.sort.title">By Title</property>
+  	<property name="playlist.sort.album">By Album</property>
+  	<property name="playlist.sort.fileName">By FileName</property>
+  	<property name="playlist.sort.length">By Song's Length</property>
+  	<property name="playlist.sort.random">Radom</property>
+  	<!-- 编辑菜单部分 -->
+  	<property name="playlist.edit">Edit</property>
+  	<property name="playlist.edit.cut">Cut</property>
+  	<property name="playlist.edit.copy">Copy</property>
+  	<property name="playlist.edit.paste">Paste</property>
+  	<property name="playlist.edit.selectAll">Select All</property>
+  	<property name="playlist.edit.selectNone">Select None</property>
+  	<property name="playlist.edit.selectReverse">Select Reverse</property>
+  	<!-- 模式菜单部分 -->
+  	<property name="playlist.mode">Mode</property>
+  	<property name="playlist.mode.noCircle">No Circle</property>
+  	<property name="playlist.mode.singleCircle">Single Circle</property>
+  	<property name="playlist.mode.allCircle">All Circle</property>
+  	<property name="playlist.mode.orderPlay">Order Play</property>
+  	<property name="playlist.mode.randomPlay">Radom Play</property>
+  	<!-- 左边的列表部分 -->
+  	<property name="playlistL.newplaylist">New PlayList</property>
+  	<property name="playlistL.addplaylist">Import PlayList</property>
+  	<property name="playlistL.saveplaylist">Save Playlist</property>
+  	<property name="playlistL.deleteplaylist">Delete PlayList</property>
+  	<property name="playlistL.saveall">Save All PlayList</property>
+  	<property name="playlistL.rename">Rename</property>
+  	<property name="playlistL.resort">Resort</property>
+  	<property name="playlistL.PreNEW">New</property>
+  	<!-- 列表的文件选择框部分 -->
+  	<property name="playlist.filechooser.name">PlayList</property>
+  	<property name="playlist.deletefile.confirm">Are you sure to delete this file?</property>
+  	<property name="confirm">Confirm</property>
+  	<property name="playlist.rename.content">Please input new name:</property>
+  	<property name="title.empty">Title can not be empty!!</property>
+  	<!-- 在添加过程中的一些提示信息 -->
+  	<property name="playlist.add.inputurl">Please input a url:</property>
+  	<property name="playlist.add.invalidUrl">The URL you input is not valid!</property>
+  	<!-- 要查找过程中的一些提示信息 -->
+  	<property name="playlist.search.inputFileName">Please input the file name:</property>
+  	<property name="playlist.search.inputTitle">Please input the title:</property>
+  	<property name="playlist.search.inputArtist">Please input the artist:</property>
+  	<property name="playlist.search.inputAlbum">Please input the album:</property>
+  	<!-- 系统栏上下文的菜单提示 -->
+  	<property name="menuitem.about">About</property>
+  	<property name="menuitem.set">Setting</property>
+  	<property name="menuitem.showMain">Show Main</property>
+  	<property name="menuitem.exit">Exit</property>
+  	<!-- 歌词窗口的右键菜单提示 -->
+  	<property name="lyric.hideLyric">Hide Lyric</property>
+  	<property name="lyric.setFont">Set font</property>
+  	<property name="lyric.setFont.title">Please select a font</property>
+  	<property name="lyric.setFreshTime">Set Fresh Time</property>
+  	<property name="lyric.setFreshTime.title">Please input a new time:(50-1000)ms</property>
+  	<property name="lyric.setHDistance">Set horizontal distance</property>
+  	<property name="lyric.setHDistance.title">Please input new horizontal distance:(1-20)</property>
+  	<property name="lyric.setVDistance">Set Vertical distance</property>
+  	<property name="lyric.setVDistance.title">Please input new vertical distance:(1-20)</property>
+  	<property name="lyric.setForeground">Set foreground</property>
+  	<property name="lyric.setForeground.title">Please select the foreground color:</property>
+  	<property name="lyric.setBackground">Set background</property>
+  	<property name="lyric.setBackground.title">Please select the background color:</property>
+  	<property name="lyric.setHilight">set Hilight Color</property>
+  	<property name="lyric.setHilight.title">Please select the hilight color:</property>
+  	<property name="lyric.showLyricH">Show Lyric Horizontal</property>
+  	<property name="lyric.showLyricV">Show Lyric Vertical</property>
+  	<property name="lyric.isAutoResize">isAutoResize</property>
+  	<!-- 设置面板的国际化 -->
+  	<property name="setting.isAutoStart">AutoStart</property>
+  	<property name="setting.mixer">MixerName</property>
+  
+</player-configuration>

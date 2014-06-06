@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="BaiTing" default="release.baiting" basedir=".">
+	<!-- 基本信息 -->
+	<property name="version" value="1.0" />
+	<property name="base" value="." />
+	<property name="source.code.dir" value="${base}/src/" />
+	<property name="source.lib.dir" value="${base}/lib/" />
+	<property name="source.download.dir" value="${base}/download/" />
+	<property name="source.icon.dir" value="${base}/icon/" />
+	<property name="source.images.dir" value="${base}/images/" />
+	<property name="source.temp.dir" value="${base}/temp/" />
+	<property name="source.setting.dir" value="${base}/setting/" />
+	<property name="source.list.dir" value="${base}/list/" />
+	<property name="source.fonts.dir" value="${base}/fonts/" />
+	
+	
+	<!-- 目的配置 -->
+	<property name="dest.dir" value="D:\\BaiTingBin2" />
+	<property name="dest.lib.dir" value="${dest.dir}/lib" />
+	<property name="dest.classes.dir" value="${dest.dir}/classes" />
+	<property name="dest.download.dir" value="${dest.dir}/download/" />
+	<property name="dest.download.song.dir" value="${dest.dir}/download/song/" />
+	<property name="dest.download.pic.dir" value="${dest.dir}/download/pics/" />
+	
+	<property name="dest.icon.dir" value="${dest.dir}/icon/" />
+	<property name="dest.images.dir" value="${dest.dir}/images/" />
+	<property name="dest.temp.dir" value="${dest.dir}/temp/" />
+	<property name="dest.setting.dir" value="${dest.dir}/setting/" />
+	<property name="dest.list.dir" value="${dest.dir}/list/" />
+	<property name="dest.lyrics.dir" value="${dest.dir}/lyrics" />
+	
+	<property name="dest.jar.filename" value="baiting-1.0.jar" />
+	<property name="dest.log.dir" value="${dest.dir}/logs" />
+	<property name="dest.fonts.dir" value="${dest.dir}/fonts" />
+
+	<path id="compile.classpath">
+		<fileset dir="${source.lib.dir}">
+			<include name="**/*.jar" />
+		</fileset>
+	</path>
+
+	<path id="build.classpath">
+		<fileset dir="${source.lib.dir}">
+			<include name="**/*.jar" />
+		</fileset>
+	</path>
+
+	<target name="init">
+		<deltree dir="${dest.dir}" />
+		<mkdir dir="${dest.dir}" />
+		<mkdir dir="${dest.classes.dir}" />
+		<mkdir dir="${dest.download.dir}" />
+		<mkdir dir="${dest.download.song.dir}" />
+		<mkdir dir="${dest.download.pic.dir}" />
+		
+		<mkdir dir="${dest.icon.dir}" />
+		<mkdir dir="${dest.images.dir}" />
+		<mkdir dir="${dest.list.dir}" />
+		<mkdir dir="${dest.lyrics.dir}" />
+		<mkdir dir="${dest.setting.dir}" />
+		<mkdir dir="${dest.fonts.dir}" />
+		<mkdir dir="${dest.log.dir}" />
+	</target>
+
+	<target name="build.core" depends="init">
+		<javac srcdir="${source.code.dir}" destdir="${dest.classes.dir}" encoding="utf-8">
+			<classpath refid="compile.classpath" />
+		</javac>
+	</target>
+
+	<target name="build.jar" depends="build.core">
+		<delete>
+			<fileset dir="${dest.dir}">
+				<include name="${dest.jar.filename}" />
+			</fileset>
+		</delete>
+
+		<jar destfile="${dest.dir}/${dest.jar.filename}" basedir="${dest.classes.dir}">
+			
+		</jar>
+		<deltree dir="${dest.classes.dir}" />
+	</target>
+
+	<target name="release.baiting" depends="init,build.core,build.jar">
+		<copyfile src="${source.code.dir}/log4j.properties" dest="${dest.dir}/log4j.properties">
+		</copyfile>
+		<copyfile src="${base}/run.bat" dest="${dest.dir}/run.bat">
+		</copyfile>
+		<copyfile src="${base}/run.sh" dest="${dest.dir}/run.sh">
+		</copyfile>
+		<copyfile src="${base}/runbat.vbs" dest="${dest.dir}/runbat.vbs">
+		</copyfile>
+		<copydir src="${source.lib.dir}" dest="${dest.lib.dir}">
+		</copydir>
+		<copydir src="${source.fonts.dir}" dest="${dest.fonts.dir}">
+		</copydir>
+		<copy todir="${dest.setting.dir}">
+	       <fileset dir="${source.setting.dir}">
+           </fileset>
+		</copy>
+		<copy todir="${dest.icon.dir}">
+	       <fileset dir="${source.icon.dir}">
+           </fileset>
+		</copy>
+		
+		<copy todir="${dest.images.dir}">
+	       <fileset dir="${source.images.dir}">
+            <include name="**/*"/>
+           </fileset>
+		</copy>
+	</target>
+</project>

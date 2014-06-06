@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE XML>
+<Songs xmlns:tns="http://www.tlplayer.org/netsong" 
+	   			xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	   			xsi:schemaLocation="http://www.tlplayer.org/netsong netsong.xsd">
+  
+  <comment>
+  	<![CDATA[
+  	 	网络在线歌曲配置文件：
+  	 	1、一个Song节点代表一个服务的配置
+  	 	2、一个SongItem节点可以配置同一个服务的多个服务
+  	 ]]>
+  </comment>
+  
+  <Song name="百度音乐" encode="UTF-8" code="BaiduMusic" url="http://music.baidu.com" 
+  				infoUrl="http://play.baidu.com/data/music/songlink" idsProperty="songIds"  
+  				searchParam="search" searchKey="key" 
+  				parseClass="com.baiting.http.neturl.JsoupParseBaiduMusic">
+  	<comment>
+  		<![CDATA[ 
+  			百度音乐在线歌曲配置：
+  			1、使用Song节点的url + SongItem节点的url 组成SongItem的完整url
+  		]]>
+  	</comment>
+  	
+    <SongItem code="BaiduTop100" name="百度新歌" url="/top/new"/>
+    <SongItem code="BaiduTop500" name="百度热歌" url="/top/dayhot"/>
+    <SongItem code="BaiduOldsong" name="经典老歌" url="/top/oldsong"/>
+    <SongItem code="BaiduNetsong" name="网络新歌" url="/top/netsong"/>
+    <SongItem code="BaiduLovesong" name="情歌对唱" url="/top/lovesong"/>
+    <SongItem code="BaiduMovesong" name="影视金曲" url="/top/yingshijinqu"/>
+    <SongItem code="BaiduKtvhot" name="KTV热歌" url="/top/ktv"/>
+  </Song>
+  
+  <Song name="３６０音乐" encode="UTF-8" code="360Music" url="http://music.so.com" 
+  				infoUrl="http://s.music.so.com/player/songlist" idsProperty="projectName=360music&amp;ids" 
+  				searchParam="search" searchKey="key" 
+  				parseClass="com.baiting.http.neturl.JsoupParseSo360Music">
+  <comment>
+  		<![CDATA[ 
+  			360音乐在线歌曲配置：
+  			1、使用Song节点的url + SongItem节点的url 组成SongItem的完整url
+  		]]>
+  	</comment>
+  	<SongItem code="360TopNew" name="360新歌" url="/top/new.html"/>
+  	<SongItem code="360TopHot" name="360热歌" url="/top/hot.html"/>
+  	<!-- <SongItem code="360Child" name="360儿歌" url="/top/child.html"/> -->
+  	<SongItem code="360MgSong" name="咪咕音乐" url="/top/migu.html"/>
+  	<SongItem code="360OldSong" name="经典老歌" url="/top/classic.html"/>
+  	<SongItem code="360NetSong" name="网络流行" url="/top/internet.html"/>
+  	<SongItem code="360LoveSong" name="情歌对唱" url="/top/love.html"/>
+  	<SongItem code="360LightSong" name="轻音乐" url="/top/light.html"/>
+  </Song>
+  
+  <!--  播放有问题
+  <Song name="搜狗音乐" encode="GBK" code="SogouMusic" url="http://music.sogou.com" 
+  				infoUrl="" idsProperty="" parseClass="org.lyj.tlplayer.neturl.JsoupParseSogouMusic">
+  	<comment>
+  		<![CDATA[ 
+  			搜狗音乐在线歌曲配置：
+  			1、使用Song节点的url + SongItem节点的url 组成SongItem的完整url
+  		]]>
+  	</comment>
+    <SongItem code="SogouTopNew" name="搜狗新歌" url="/static_new/topsong_new.html"/>
+    <SongItem code="SogouTopHot" name="搜狗热歌" url="/static_new/topsong_hot.html"/>
+    <SongItem code="SogouLiuxing" name="搜狗流行" url="/static_new/topsong_liuxing.html"/>
+    <SongItem code="SogouHuayu" name="内地流行" url="/static_new/topsong_huayu.html"/>
+    <SongItem code="SogouGangtai" name="港台流行" url="/static_new/topsong_gangtai.html"/>
+    <SongItem code="SogouOumei" name="欧美流行" url="/static_new/topsong_oumei.html"/>
+    <SongItem code="SogouRihan" name="日韩流行" url="/static_new/topsong_rihan.html"/>
+  </Song>   
+   -->
+   
+</Songs>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" 
+				targetNamespace="http://www.tlplayer.org/netsong" 
+				xmlns:tns="http://www.tlplayer.org/netsong" elementFormDefault="qualified">
+    
+    <element name="Songs">
+       <complexType>
+	  <sequence>
+	   <element name="comment" type="string" maxOccurs="1"/>
+	   <element name="Song" maxOccurs="unbounded">
+	    <complexType>
+	     <sequence>
+	     	<element name="comment" type="string" maxOccurs="1"/>
+	     	<element name="SongItem" maxOccurs="unbounded">
+	     		<complexType>
+	     			<attribute name="code" type="string" use="required"/>
+	     			<attribute name="name" type="string" use="required"/>
+	     			<attribute name="url" type="string" use="required"/>
+	     		</complexType>
+	     	</element>
+	     </sequence>
+	     <attribute name="code" type="string" use="required"/>
+	     <attribute name="name" type="string" use="required" />
+	     <attribute name="url" type="string" use="required"/>
+	     <attribute name="encode" type="string" use="required" />
+	     <attribute name="infoUrl" type="string" use="required"/>
+	     <attribute name="idsProperty" type="string" use="required"/>
+	     <attribute name="parseClass" type="string" use="required"/>
+	    </complexType>
+	   </element>
+	  </sequence>
+	 </complexType>
+    </element>
+    
+</schema>
