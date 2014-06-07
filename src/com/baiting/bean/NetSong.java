@@ -98,5 +98,12 @@ public class NetSong implements IBaseBean {
 	public void setType(int type) {
 		this.type = type;
 	}
+
+	@Override
+	public String toString() {
+		return "NetSong [sid=" + sid + ", songName=" + songName + ", singer="
+				+ singer + ", album=" + album + ", url=" + url + ", localPath="
+				+ localPath + ", type=" + type + ", xmlSong=" + xmlSong + "]";
+	}
 	
 }

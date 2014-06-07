@@ -35,7 +35,7 @@ public class CheckBoxCellEditor extends DefaultCellEditor implements ItemListene
 	}
 
 	public Object getCellEditorValue() {
-		checkBox.removeItemListener(this);
+//		checkBox.removeItemListener(this);
 		return checkBox;
 	}
 

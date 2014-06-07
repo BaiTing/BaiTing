@@ -55,14 +55,14 @@ public class SongListTable extends MusicTable {
 		this.getColumnModel().getColumn(6).setPreferredWidth(20);
 		
 		this.addMouseMotionListener(addMouseMotionListener());
-		this.addMouseListener(addMouseListener()) ;
+		this.addMouseListener(addMouseListener(this)) ;
 	}
 	
 	public static List<NetSong> getNetSongList() {
 		return netSongList;
 	}
 	
-	private MouseListener addMouseListener(){
+	private MouseListener addMouseListener(final SongListTable slt){
 		return new MusicMouseListener() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -72,17 +72,40 @@ public class SongListTable extends MusicTable {
 					int col = columnAtPoint(e.getPoint());
 					
 					if(col == 4) {
+						
 						NetSong netSong = SongListTable.getNetSongList().get(row);
 						NetSongService netSongService = new NetSongService();
 						netSongService.playNetSong(netSong,"");
+						
+						int count = slt.getRowCount() ;
+						for(int i=0; i<count; i++){
+							JCheckBox jcb = (JCheckBox)slt.getModel().getValueAt(i, 0) ;
+							System.out.println(i+" = "+jcb.isSelected());
+							if(jcb.isSelected()){
+								NetSong netSong1 = SongListTable.getNetSongList().get(i);
+								System.out.println(netSong1);
+								netSongService.addNetSongToPlayList(netSong1,"");
+							}
+						}
 						netSongService = null;
 						netSong = null;
 					} else if(col == 5) {
-						NetSong netSong = SongListTable.getNetSongList().get(row);
+//						NetSong netSong = SongListTable.getNetSongList().get(row);
 						NetSongService netSongService = new NetSongService();
-						netSongService.addNetSongToPlayList(netSong,"");
-						netSongService = null;
-						netSong = null;
+//						netSongService.addNetSongToPlayList(netSong,"");
+//						netSongService = null;
+//						netSong = null;
+						//TODO:根据选中添加歌曲
+						int count = slt.getRowCount() ;
+						for(int i=0; i<count; i++){
+							JCheckBox jcb = (JCheckBox)slt.getModel().getValueAt(i, 0) ;
+							System.out.println(i+" = "+jcb.isSelected());
+							if(jcb.isSelected()){
+								NetSong netSong1 = SongListTable.getNetSongList().get(i);
+								System.out.println(netSong1);
+								netSongService.addNetSongToPlayList(netSong1,"");
+							}
+						}
 					} else if(col == 6) {
 						NetSong netSong = SongListTable.getNetSongList().get(row);
 						boolean flag = DownloadSongService.getInstance().existSongByInfo(netSong.getSongName(), netSong.getSinger());
