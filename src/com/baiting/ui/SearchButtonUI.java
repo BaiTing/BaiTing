@@ -50,7 +50,7 @@ public class SearchButtonUI extends JButton {
 		g2d.setFont(this.getFont());
 		int x = (this.getWidth()-fm.stringWidth(this.getText()))/2;
 		g2d.drawString(this.getText(), x+2, this.getHeight()/2+5);
-		
+//		super.paintComponent(g2d);
 	}
 	
 	

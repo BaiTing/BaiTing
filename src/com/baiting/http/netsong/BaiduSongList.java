@@ -74,8 +74,6 @@ public class BaiduSongList extends NetSongList  implements MouseListener {
 		} catch (Exception e1) {
 			e1.printStackTrace();
 		}
-		
-		
 		return netSongs.size()>0?netSongs:null ;
 	}
 	

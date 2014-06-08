@@ -139,7 +139,7 @@ public class MusicListLayout extends Music {
 		songListPanel.setPreferredSize(new Dimension(MUSIC_WINDOW_RIGHT_WIDTH-MUSIC_WINDOW_PLAY_LIST_WIDTH-2,0));
 
 		songList = new JList();
-		songList.setFont(Fonts.songTi13());
+		songList.setFont(Fonts.songTi12());
 		songList.setOpaque(false);
 		((JLabel)songList.getCellRenderer()).setOpaque(false);
 		songListVector = getSongList(playListNameList.getName());
@@ -148,7 +148,7 @@ public class MusicListLayout extends Music {
 		}
 		
 		songList.setFixedCellHeight(25);
-		songList.setAutoscrolls(true); 
+//		songList.setAutoscrolls(true); 
 		songList.getCellBounds(0, 0);
 		MusicListCellRenderer listCellRenderer2 = new MusicListCellRenderer(false);
 		listCellRenderer2.setOpaque(false);

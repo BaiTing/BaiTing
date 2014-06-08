@@ -78,7 +78,7 @@ public class JsoupParseSo360Music extends JsoupParseNetMusic {
 	public String getSongUrl(XmlSong xs, String songId) throws Exception {
 //		String url = "http://s.music.so.com/player/song?projectName=360music&id=" + songId ;
 		String url = xs.getInfoUrl().replace("list", "")+ "?" + xs.getIdsProperty().substring(0, xs.getIdsProperty().lastIndexOf("s")) + "=" + songId ;
-		System.out.println("======>"+url);
+//		System.out.println("======>"+url);
 		String jsonInfo = visitURL(url, null) ;
 		JSONObject jsonObject = JSONObject.parseObject(jsonInfo) ;
 		

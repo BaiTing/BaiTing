@@ -20,11 +20,12 @@ public class SongListTable extends MusicTable {
 
 	private static final long serialVersionUID = -8298003521968394492L;
 	//private Object[][] datas;
-	public static List<NetSong> netSongList;
+	public static List<NetSong> netSongList, selectedSongs;
 	public SongListTable(Object[][] obj,String[] obj2,List<NetSong> netSongList) {
 		
 		super(obj, obj2);
-		SongListTable.netSongList = netSongList;
+		SongListTable.netSongList = netSongList; //所有歌曲列表
+		SongListTable.selectedSongs = netSongList; //用以维持被选中的列表
 		
 		/* 
          * 将表格设置为透明，表格同样包括表格本身和其中的内容项 
@@ -33,13 +34,13 @@ public class SongListTable extends MusicTable {
          */
 		for(int i=0; i<obj2.length; i++){
 			if(i == 0){
-				this.getColumnModel().getColumn(i).setCellEditor(new CheckBoxCellEditor(new JCheckBox()));
+				this.getColumnModel().getColumn(i).setCellEditor(new CheckBoxCellEditor(new JCheckBox(), selectedSongs));
 				this.getColumnModel().getColumn(i).setCellRenderer(new CheckBoxCellRenderer());
 			}else{
 				this.getColumnModel().getColumn(i).setCellRenderer(new SongListTableCellRenderer());
 			}
 		}
-		this.getColumn("序号").setCellEditor(new CheckBoxCellEditor(new JCheckBox()));
+		
 		this.setOpaque(false);
 		this.setShowVerticalLines(false);
 		this.setAutoscrolls(true);
@@ -58,6 +59,10 @@ public class SongListTable extends MusicTable {
 		this.addMouseListener(addMouseListener(this)) ;
 	}
 	
+	public static List<NetSong> getSelectedNetSongList(){
+		return selectedSongs ;
+	}
+	
 	public static List<NetSong> getNetSongList() {
 		return netSongList;
 	}
@@ -72,40 +77,17 @@ public class SongListTable extends MusicTable {
 					int col = columnAtPoint(e.getPoint());
 					
 					if(col == 4) {
-						
 						NetSong netSong = SongListTable.getNetSongList().get(row);
 						NetSongService netSongService = new NetSongService();
 						netSongService.playNetSong(netSong,"");
-						
-						int count = slt.getRowCount() ;
-						for(int i=0; i<count; i++){
-							JCheckBox jcb = (JCheckBox)slt.getModel().getValueAt(i, 0) ;
-							System.out.println(i+" = "+jcb.isSelected());
-							if(jcb.isSelected()){
-								NetSong netSong1 = SongListTable.getNetSongList().get(i);
-								System.out.println(netSong1);
-								netSongService.addNetSongToPlayList(netSong1,"");
-							}
-						}
 						netSongService = null;
 						netSong = null;
 					} else if(col == 5) {
-//						NetSong netSong = SongListTable.getNetSongList().get(row);
+						NetSong netSong = SongListTable.getNetSongList().get(row);
 						NetSongService netSongService = new NetSongService();
-//						netSongService.addNetSongToPlayList(netSong,"");
-//						netSongService = null;
-//						netSong = null;
-						//TODO:根据选中添加歌曲
-						int count = slt.getRowCount() ;
-						for(int i=0; i<count; i++){
-							JCheckBox jcb = (JCheckBox)slt.getModel().getValueAt(i, 0) ;
-							System.out.println(i+" = "+jcb.isSelected());
-							if(jcb.isSelected()){
-								NetSong netSong1 = SongListTable.getNetSongList().get(i);
-								System.out.println(netSong1);
-								netSongService.addNetSongToPlayList(netSong1,"");
-							}
-						}
+						netSongService.addNetSongToPlayList(netSong,"");
+						netSongService = null;
+						netSong = null;
 					} else if(col == 6) {
 						NetSong netSong = SongListTable.getNetSongList().get(row);
 						boolean flag = DownloadSongService.getInstance().existSongByInfo(netSong.getSongName(), netSong.getSinger());
@@ -116,7 +98,6 @@ public class SongListTable extends MusicTable {
 						} else {
 							MusicListLayout.showMsg(Music.getConfigMap().get("search.msg.alert").toString());
 						}
-
 						netSong = null;
 					}
 				}

@@ -9,6 +9,7 @@ import com.baiting.bean.Song;
 import com.baiting.layout.DowningLayout;
 import com.baiting.layout.MusicListLayout;
 import com.baiting.layout.MusicPlayControllerLayout;
+import com.baiting.layout.MusicTable;
 import com.baiting.service.DownloadSongService;
 import com.baiting.service.MusicPlayerService;
 import com.baiting.service.SongListService;
@@ -125,6 +126,12 @@ public class SongUrlHtmlParse extends SearchNetSongHttp {
 			MusicListLayout.showErrorMsg(getConfigMap().get("song.down.notfind.resource.msg").toString().replaceAll("\\$\\{param\\}", netSong.getSongName()));
 			log.info(netSong.getSongName()+"--对应的URL获取失败----");
 		}
+	}
+
+	@Override
+	public MusicTable getMusicTable() {
+		// TODO Auto-generated method stub
+		return null ;
 	}
 
 }

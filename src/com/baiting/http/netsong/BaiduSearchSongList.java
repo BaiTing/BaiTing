@@ -5,12 +5,14 @@ import java.awt.Dimension;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.JCheckBox;
 import javax.swing.JScrollPane;
 
 import com.baiting.bean.NetSong;
 import com.baiting.bean.netsong.Song;
 import com.baiting.bean.netsong.XmlSong;
 import com.baiting.http.neturl.JsoupParseNetMusicFactory;
+import com.baiting.layout.MusicTable;
 import com.baiting.layout.NetSongPanel;
 import com.baiting.layout.ShowMsgPanel;
 import com.baiting.layout.SongListTable;
@@ -94,10 +96,10 @@ public class BaiduSearchSongList extends SearchNetSongHttp {
 		List<NetSong> lists = startGradSongList();
 		if(null != lists && lists.size()>0) {
 			String[] titles = getConfigMap().get("search.song.table.header").toString().split(",");
-			String[][] datas = new String[lists.size()][titles.length];
+			Object[][] datas = new Object[lists.size()][titles.length];
 			int count = 0;
 			for(NetSong netSong : lists) {
-				datas[count][0] = (count+1)+"";
+				datas[count][0] = new JCheckBox();
 				datas[count][1] = netSong.getSongName();
 				datas[count][2] = netSong.getSinger();
 				datas[count][3] = netSong.getAlbum();
@@ -108,6 +110,7 @@ public class BaiduSearchSongList extends SearchNetSongHttp {
 			}
 			//log.info(lists.size()+"");
 			SongListTable table = new SongListTable(datas,titles,lists);
+			this.setMusicTable(table);
 			table.getTableHeader().setBackground(CommonUtil.getColor("#f8eae7"));
 			JScrollPane tablePanel = new JScrollPane();
 			tablePanel.setBorder(null);
@@ -128,6 +131,12 @@ public class BaiduSearchSongList extends SearchNetSongHttp {
 			msgPanel.setMsg(getConfigMap().get("search.fail.msg").toString());
 		}
 		msgPanel = null;
+	}
+
+	@Override
+	public MusicTable getMusicTable() {
+		// TODO Auto-generated method stub
+		return this.musicTable ;
 	}
 
 }

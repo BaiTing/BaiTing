@@ -13,6 +13,7 @@ import com.baiting.MusicBackgroudPanel;
 import com.baiting.MusicFrame;
 import com.baiting.MusicWindow;
 import com.baiting.util.CommonUtil;
+import com.baiting.util.WindowUtils;
 
 public class MusicWindowLayout extends MusicWindow {
 
@@ -39,9 +40,14 @@ public class MusicWindowLayout extends MusicWindow {
 	
 	public void show() {
 		frame = createWindow();
-//		WindowUtils.setWindowTransparent(frame, true);
-
+		if(WindowUtils.isWindowAlphaSupported()){
+        	//TODO:关键啊！！！可以是播放器呈现透明
+//            WindowUtils.setWindowAlpha(frame, 0.9f);
+//			WindowUtils.setWindowTransparent(frame, true);
+        }
+		
 		Container contentPane = frame.getContentPane();
+		((JPanel)contentPane).setOpaque(false);
 		contentPane.setLayout(new BorderLayout(0,0));
 		
 		backgroudPanel = new MusicBackgroudPanel();
@@ -50,6 +56,7 @@ public class MusicWindowLayout extends MusicWindow {
 		//contentPane.setFont(Fonts.songTi16());
 		
 		panelTop = new JPanel();
+		panelTop.setOpaque(false);
 		
 		panelLeft = new JPanel();
 		panelLeft.setBackground(Color.WHITE);
@@ -59,7 +66,10 @@ public class MusicWindowLayout extends MusicWindow {
 		panelRight.setOpaque(false);
 		
 		panelButtom = new JPanel();
+		panelButtom.setOpaque(false);
+		
 		initPanel();
+		
 		backgroudPanel.add(panelTop,BorderLayout.NORTH);
 		backgroudPanel.add(panelLeft,BorderLayout.CENTER);
 		backgroudPanel.add(panelRight,BorderLayout.WEST);
