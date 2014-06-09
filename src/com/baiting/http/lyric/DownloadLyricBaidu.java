@@ -106,8 +106,14 @@ public class DownloadLyricBaidu extends DownloadLyric implements Runnable{
 	    List<SearchResult> list = LRCUtil.search(info);
 	    if (list.isEmpty())
 	      return null;
+	    
+	    for (SearchResult searchResult : list) {
+			if(info.getSinger().equals(searchResult.getArtist()) && info.getName().equals(searchResult.getTitle())){
+				return searchResult.getContent() ;
+			}
+		}
 
-	    return list.get(0).getContent();
+	    return null;
 	  }
 	  
 	  /**
