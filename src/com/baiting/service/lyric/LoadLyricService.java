@@ -182,6 +182,7 @@ public class LoadLyricService extends MusicService implements Runnable {
 		LyricStatement preLyricStatement = null;
 		LyricStatement returnLyricStatement = null;
 		List<LyricStatement> list = lrc.getLrcInfos();
+		if(null != list)
 		for (Iterator iterator = list.iterator(); iterator.hasNext();) {
 			LyricStatement lyricStatement = (LyricStatement) iterator.next();
 			if(time == lyricStatement.getTime()){

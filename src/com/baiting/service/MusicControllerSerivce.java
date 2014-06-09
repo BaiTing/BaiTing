@@ -177,6 +177,7 @@ public class MusicControllerSerivce extends MusicService implements Runnable{
 
 	private synchronized SourceDataLine getLine() {
 		SourceDataLine res = null;
+		if(null == decodedFormat) init();
 		info = new DataLine.Info(SourceDataLine.class,decodedFormat);
 		try {
 			res = (SourceDataLine) AudioSystem.getLine(info);
