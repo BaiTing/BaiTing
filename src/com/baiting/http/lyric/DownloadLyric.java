@@ -5,7 +5,7 @@ import com.baiting.http.Download;
 import com.baiting.http.HttpRequest;
 import com.baiting.service.MusicPlayerService;
 
-public class DownloadLyric extends Download {
+public abstract class DownloadLyric extends Download {
 	
 	protected HttpRequest request;
 	
@@ -25,10 +25,7 @@ public class DownloadLyric extends Download {
 	}
 	
 	
-	public boolean startDownload() {
-		
-		return false;
-	}
+	public abstract boolean startDownload() ;
 
 	@Override
 	public void run() {
