@@ -16,6 +16,7 @@ import com.baiting.layout.MusicTable;
 import com.baiting.layout.NetSongPanel;
 import com.baiting.layout.ShowMsgPanel;
 import com.baiting.layout.SongListTable;
+import com.baiting.ui.MyScrollBarUI;
 import com.baiting.util.CommonUtil;
 import com.baiting.util.StringUtil;
 
@@ -119,9 +120,11 @@ public class BaiduSearchSongList extends SearchNetSongHttp {
 			tablePanel.setViewportView(table);
 			tablePanel.setColumnHeaderView(table.getTableHeader()); //设置头部（HeaderView部分）  
 			tablePanel.getColumnHeader().setOpaque(false); //再取出头部，并设置为透明 
-			tablePanel.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-			tablePanel.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+			tablePanel.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+//			tablePanel.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
 			tablePanel.setPreferredSize(new Dimension(getWidth()/2+60, getHeight()/2+100));
+			tablePanel.getVerticalScrollBar().setUI(new MyScrollBarUI());
+			
             NetSongPanel.getInstance().create().removeAll();
 			NetSongPanel.getInstance().create().repaint();
 			NetSongPanel.getInstance().create().add(tablePanel,BorderLayout.CENTER);

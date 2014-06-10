@@ -9,6 +9,7 @@ import javax.swing.table.DefaultTableModel;
 import com.baiting.Music;
 import com.baiting.bean.DowningNetSong;
 import com.baiting.font.Fonts;
+import com.baiting.ui.MyScrollBarUI;
 
 public class DowningLayout extends Music {
 	
@@ -68,9 +69,10 @@ public class DowningLayout extends Music {
 		tablePanel.setViewportView(downingTable); //装载表格
 		tablePanel.setColumnHeaderView(downingTable.getTableHeader()); //设置头部（HeaderView部分）  
 		tablePanel.getColumnHeader().setOpaque(false); //再取出头部，并设置为透明 
-		tablePanel.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-		tablePanel.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+		tablePanel.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+//		tablePanel.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
 		tablePanel.setPreferredSize(new Dimension(getWidth()/2+60, getHeight()/2+100));
+		tablePanel.getVerticalScrollBar().setUI(new MyScrollBarUI());
 	}
 
 	public JScrollPane create() {

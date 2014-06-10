@@ -24,6 +24,7 @@ import com.baiting.listener.ShowListLabelMouseListener;
 import com.baiting.listener.SongListMouseListener;
 import com.baiting.service.PlayListService;
 import com.baiting.service.SongListService;
+import com.baiting.ui.MyScrollBarUI;
 import com.baiting.util.CommonUtil;
 
 public class MusicListLayout extends Music {
@@ -159,8 +160,10 @@ public class MusicListLayout extends Music {
 		scrollPane.getViewport().setOpaque(false);
 		scrollPane.setBorder(null);
 		scrollPane.setAutoscrolls(true);
-		scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-		scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+		scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+//		scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+		scrollPane.getVerticalScrollBar().setUI(new MyScrollBarUI());
+		
 		songListPanel.add(scrollPane,BorderLayout.CENTER);
 	}
 	
