@@ -113,7 +113,7 @@ public class DownloadLyricBaidu extends DownloadLyric implements Runnable{
 			}
 		}
 
-	    return null;
+	    return list.get(0).getContent();
 	  }
 	  
 	  /**
