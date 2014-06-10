@@ -45,7 +45,7 @@ public class DownloadLyricBaidu extends DownloadLyric implements Runnable{
 		try{
 			    String lrcStr = this.getLyric(song) ;
 				if(!StringUtil.isEmpty(lrcStr)) {
-					String lrcPath = getLrcDir()+"/"+artist+"-"+name+LRC_EXT;
+					String lrcPath = getLrcDir()+ File.separator + artist +"-"+ name+LRC_EXT;
 					File lrcFile = new File(lrcPath);
 					if(!lrcFile.exists()) {
 						log.info("正在创建["+lrcPath+"]文件......");

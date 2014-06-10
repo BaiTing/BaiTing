@@ -53,7 +53,7 @@ public class Utils {
 	 */
 	public CloseableHttpClient getConn(){
 		if(config.isUseProxy()){
-			log.log(Level.INFO, "使用代理连接网络...") ;
+			log.info("使用代理连接网络...") ;
 			HttpHost proxy = new HttpHost(config.getProxyHost(), Integer.parseInt(config.getProxyPort()));
     		if (!StringUtil.isBlank(config.getProxyUserName()) && !StringUtil.isBlank(config.getProxyPwd())) {
     			// 设置http访问要使用的代理服务器的用户名和密码
@@ -76,7 +76,7 @@ public class Utils {
 	 */
 	public CloseableHttpAsyncClient getAsyncConn(){
 		if(config.isUseProxy()){
-			log.log(Level.INFO, "使用代理连接网络...") ;
+			log.info("使用代理连接网络...") ;
 			HttpHost proxy = new HttpHost(config.getProxyHost(), Integer.parseInt(config.getProxyPort()));
     		if (!StringUtil.isBlank(config.getProxyUserName()) && !StringUtil.isBlank(config.getProxyPwd())) {
     			// 设置http访问要使用的代理服务器的用户名和密码

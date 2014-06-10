@@ -2,6 +2,7 @@ package com.baiting;
 
 import java.awt.Color;
 import java.awt.Toolkit;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -177,7 +178,7 @@ public class Music implements IMusic {
 	 * @return
 	 */
 	public String getLrcDir() {
-		return getBasePath()+"/lyrics";
+		return getBasePath()+ File.separator +"lyrics";
 	}
 	
 	/**
@@ -185,7 +186,7 @@ public class Music implements IMusic {
 	 * @return
 	 */
 	public String getSingerPicDir() {
-		return getBasePath()+"/download/pics";
+		return getBasePath()+ File.separator +"download"+ File.separator +"pics";
 	}
 	
 	public String getDownloadSongPath() {
