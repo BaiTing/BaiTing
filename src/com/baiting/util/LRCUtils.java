@@ -76,6 +76,8 @@ public class LRCUtils
 		        }
 
 		      };
+		      String content = task.getLyricContent() ;
+		      if(content.indexOf("errmsg") != -1 && content.indexOf("errcode") != -1) continue ;
 		      SearchResult result = new SearchResult(lrcId, lrcCode, artistTemp, titleTemp, task);
 		      list.add(result);
 		}
